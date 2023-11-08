@@ -7,7 +7,7 @@ import java.util.UUID;
  *     UUID 使用demo
  *     </p>
  *
- * @author lijiang
+ * @author Alex
  * @since 2023/10/16 上午10:29
  */
 public class UUIDDemo {

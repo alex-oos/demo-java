@@ -8,7 +8,7 @@ import java.lang.reflect.Field;
 /**
  * <P></p>
  *
- * @author lijiang
+ * @author Alex
  * @since 2023/11/8 上午10:18
  */
 @Data
@@ -23,7 +23,7 @@ public class ReflectionDemo {
         Object instance = clazz.newInstance();
 
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("name", "lijiang");
+        jsonObject.put("name", "Alex");
 
         java.util.Map<?, ?> map = (java.util.Map<?, ?>) jsonObject;
         for (Field field : clazz.getDeclaredFields()) {

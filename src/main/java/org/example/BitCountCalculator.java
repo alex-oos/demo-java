@@ -5,7 +5,7 @@ import java.math.BigInteger;
 /**
  * <P></p>
  *
- * @author lijiang
+ * @author Alex
  * @since 2023/11/1 下午3:11
  */
 public class BitCountCalculator {

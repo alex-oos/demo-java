@@ -10,7 +10,7 @@ import java.util.stream.IntStream;
 /**
  * <P></p>
  *
- * @author lijiang
+ * @author Alex
  * @since 2023/11/4 上午11:08
  */
 public class GenaturValue {

@@ -8,7 +8,7 @@ import java.util.stream.IntStream;
 /**
  * <P></p>
  *
- * @author lijiang
+ * @author Alex
  * @since 2023/11/1 上午11:19
  */
 public class BitDemo {

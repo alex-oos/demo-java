@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 /**
  * <P></p>
  *
- * @author lijiang
+ * @author Alex
  * @since 2023/11/6 下午3:04
  */
 public class FileOperater {

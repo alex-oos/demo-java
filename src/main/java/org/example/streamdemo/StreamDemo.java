@@ -8,7 +8,7 @@ import java.util.function.BinaryOperator;
 import java.util.stream.Collectors;
 
 /**
- * @author lijiang
+ * @author Alex
  * @since 2023/10/11 上午10:34
  * <P></p>
  */
