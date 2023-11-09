@@ -11,7 +11,7 @@ import java.util.stream.Stream;
  * @date: 2023/10/7 上午10:35
  * @Descprition: 显示所有路径下的文件
  */
-public class demo {
+public class FilePath {
 
     public static void main(String[] args) throws IOException {
 
