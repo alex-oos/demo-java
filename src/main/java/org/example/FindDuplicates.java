@@ -7,6 +7,8 @@ package org.example;
  * @since 2023/11/6 上午10:05
  */
 
+import org.example.collection.Person;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
