@@ -31,7 +31,7 @@ public class ListDemo2 {
         List<String> list1 = new ArrayList<>();
 
         list1.add("");
-        list1.add("Demo");
+        list1.add("ListGetTwo");
         List<String> collect1 = list1.stream().filter(e -> !e.equals("")).collect(Collectors.toList());
 
         collect1.forEach(System.out::println);
