@@ -17,18 +17,20 @@ public class ListGetTwo {
     /**
      * 暴力解法， 写一个for循环，取出相邻的两个元素
      */
-    public static Map<Integer, Integer> function(List<Integer> list) {
+    public static List<List<Integer>> function(List<Integer> list) {
 
-        Map<Integer, Integer> map = new HashMap<>();
+        List<List<Integer>> result = new ArrayList<>();
 
         for (int i = 0; i < list.size() - 1; i++) {
+            List<Integer> tmp = new ArrayList<>();
             int first = list.get(i);
             int second = list.get(i + 1);
-            map.put(first, second);
+            tmp.add(first);
+            tmp.add(second);
+            result.add(tmp);
         }
-        System.out.println("map = " + map);
-
-        return map;
+        System.out.println("result = " + result);
+        return result;
 
     }
 
@@ -48,6 +50,7 @@ public class ListGetTwo {
 
 
         List<Integer> list = List.of(1, 2, 3, 4);
+        function(list);
         f1(list);
 
 
