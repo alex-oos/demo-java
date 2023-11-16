@@ -9,7 +9,7 @@ import java.util.stream.IntStream;
  * 给一个数组，取出相邻的两个元素
  * </p>
  *
- * @author lijiang
+ * @author Alex
  * @since 2023/11/10 下午5:19
  */
 public class ListGetTwo {

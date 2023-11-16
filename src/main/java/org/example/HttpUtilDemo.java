@@ -14,7 +14,7 @@ import java.util.concurrent.*;
 /**
  * <P></p>
  *
- * @author lijiang
+ * @author Alex
  * @since 2023/11/10 上午10:51
  */
 public class HttpUtilDemo {
@@ -37,8 +37,8 @@ public class HttpUtilDemo {
         String host = "http://prod-datavalidator-hdmap.evad.mioffice.cn";
         String localhost = "http://localhost:8989";
 
-        String url = host + "/hdmap/update";
-        String response = HttpRequest.put(url).header("Content-Type", "text/plain").body(body).execute().body();
+        String url = host + "/hdmap/insert";
+        String response = HttpRequest.post(url).header("Content-Type", "text/plain").body(body).execute().body();
         JSONObject jsonObject = JSONObject.parseObject(response);
         jsonObject.put("requestBody", body);
         return jsonObject;
@@ -54,6 +54,7 @@ public class HttpUtilDemo {
         for (String body : bodyList) {
             CompletableFuture<JSONObject> completableFuture = CompletableFuture.supplyAsync(() -> request(body),
                     executor).thenApply(jsonObject -> {
+                System.out.println("jsonObject = " + jsonObject);
                 if (!jsonObject.get("code").equals(200)) {
                     System.out.println(jsonObject);
                 }
