@@ -13,8 +13,8 @@ public class Demo1 {
 
     public static void main(String[] args) {
 
-        Pattern compile = Pattern.compile("^[1-9]\\d*$");
-        Matcher matcher = compile.matcher("-123");
+        Pattern compile = Pattern.compile("^[1-9|]*");
+        Matcher matcher = compile.matcher("1203|123");
         System.out.println(matcher.matches());
 
     }
