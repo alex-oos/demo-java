@@ -1,5 +1,6 @@
 package org.example.regex;
 
+import java.math.BigInteger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -16,6 +17,11 @@ public class Demo1 {
         Pattern compile = Pattern.compile("^[1-9|]*");
         Matcher matcher = compile.matcher("1203|123");
         System.out.println(matcher.matches());
+
+        long maxValue = Long.MAX_VALUE;
+        System.out.println("maxValue = " + maxValue);
+
+
 
     }
 
