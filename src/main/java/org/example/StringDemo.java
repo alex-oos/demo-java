@@ -1,9 +1,15 @@
 package org.example;
 
+import org.apache.commons.lang3.StringUtils;
+
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Scanner;
 import java.util.stream.Collectors;
+
 
 /**
  * @author Alex
@@ -40,24 +46,34 @@ public class StringDemo {
     /**
      * 获取geometry字段数量
      */
-    public static void f3() {
+    public static void f3(String geometryStr) {
 
-        Scanner scanner = new Scanner(System.in);
+ /*        Scanner scanner = new Scanner(System.in);
         System.out.println("请输入从数据库中查询出来的geometryStr数据：");
         // POLYGON Z((116.325394 40.084884 0, 116.326268 40.084579 0, 116.325624 40.084318 0, 116.325394 40.084884 0, 116.325394 40.084884 0))
-        String geometryStr = scanner.nextLine();
+        String geometryStr = scanner.nextLine(); */
 
 
         int beginIndex = geometryStr.lastIndexOf("(");
         int endIndex = geometryStr.lastIndexOf(")");
 
         int pointNum = geometryStr.substring(beginIndex, endIndex).split(",").length;
-        System.out.println("节点数为：" + pointNum);
+        if (pointNum < 2) {
+            System.out.println("节点数为 = " + pointNum);
+        }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
-        f3();
+        // List<String> list = Files.readAllLines(Paths.get("./data/geometry.txt"));
+        // // System.out.println("list = " + list);
+        // list.forEach(StringDemo::f3);
+
+        String a ="你好";
+        byte[] bytes = a.getBytes();
+
+        String s = new String(bytes, StandardCharsets.UTF_8);
+        System.out.println("s = " + s);
 
     }
 
