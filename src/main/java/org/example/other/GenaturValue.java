@@ -1,5 +1,8 @@
 package org.example.other;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -15,7 +18,7 @@ import java.util.stream.IntStream;
  */
 public class GenaturValue {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         List<Integer> list1 = IntStream.range(8, 13).boxed().collect(Collectors.toList());
         List<Integer> list2 = IntStream.range(20, 22).boxed().collect(Collectors.toList());
@@ -38,6 +41,16 @@ public class GenaturValue {
         String[] split = a.split(",");
         List<String> collect1 = Arrays.stream(split).collect(Collectors.toList());
         System.out.println("collect1 = " + collect1);
+
+        Process process = Runtime.getRuntime().exec("java -version");
+        BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+        String line;
+        StringBuffer stringBuffer = new StringBuffer();
+        while ((line = reader.readLine()) != null) {
+            System.out.println(line);
+            stringBuffer.append(line);
+        }
+        System.out.println(stringBuffer);
 
 
     }
