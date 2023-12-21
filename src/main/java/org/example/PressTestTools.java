@@ -17,8 +17,7 @@ import java.util.concurrent.*;
  */
 public class PressTestTools {
 
-    public static final ThreadPoolExecutor EXECUTORS = new ThreadPoolExecutor(10, 20, 1L, TimeUnit.SECONDS,
-            new ArrayBlockingQueue<>(100), new ThreadPoolExecutor.CallerRunsPolicy());
+    public static final ThreadPoolExecutor EXECUTORS = new ThreadPoolExecutor(10, 20, 1L, TimeUnit.SECONDS, new ArrayBlockingQueue<>(100), new ThreadPoolExecutor.CallerRunsPolicy());
 
 
     public static JSONObject start(String host) {
