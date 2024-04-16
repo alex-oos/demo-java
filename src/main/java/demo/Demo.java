@@ -10,6 +10,10 @@ public class Demo {
 
     public static void main(String[] args) {
 
+        int  a = 61440;
+        int c =a/1024;
+        System.out.println(c);
+
         // 跳出标记
         outer:
         for (int i = 0; i < 5; i++) {
