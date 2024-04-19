@@ -1,5 +1,8 @@
 package src.main.java.demo.threaddemo.task;
 
+import java.util.Random;
+import java.util.concurrent.TimeUnit;
+
 public class MyRunnable implements Runnable {
 
     private int taskId;
@@ -13,25 +16,19 @@ public class MyRunnable implements Runnable {
     @Override
     public void run() {
 
+
+        System.out.println("线程名称为：" + Thread.currentThread().getName() + ",线程状态为：" + Thread.currentThread().getState() + ",Task is :" + taskId);
         try {
-            System.out.println("线程名称为：" + Thread.currentThread().getName() + ",线程状态为：" + Thread.currentThread().getState() + ",Task is :" + taskId);
-            Thread.sleep(1000);
-            System.out.println("Task " + taskId + " completed.");
-            if (taskId == 5) {
-                throw new RuntimeException("Exception occurred in task " + taskId);
-            }
-
-
+            TimeUnit.SECONDS.sleep(new Random().nextInt(10));
         } catch (InterruptedException e) {
-            // 检查线程是否被中断
-            System.out.println("线程名称为：" + Thread.currentThread().getName() + "线程状态为：" + Thread.currentThread().getState());
-            System.out.println("Task " + taskId + " was interrupted.");
-            System.out.println("thread state is  " + Thread.currentThread().getState());
-        } catch (Exception e) {
-            // 处理任务异常
-            System.out.println("Task " + taskId + " encountered an exception: " + e.getMessage());
-
+            throw new RuntimeException(e);
         }
+        System.out.println("Task " + taskId + " completed.");
+        if (taskId % 7 == 0) {
+            throw new RuntimeException("Exception occurred in task " + taskId);
+        }
+
+
     }
 
 }
