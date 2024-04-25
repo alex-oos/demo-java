@@ -1,4 +1,4 @@
-package demo;
+package src.main.java.demo.filedemo;
 
 /**
  * <P></p>
@@ -6,7 +6,7 @@ package demo;
  * @author Alex
  * @since 2023/12/6 下午6:30
  */
-public class Test {                         // 1.第一步，准备加载类
+public class ClassLoadOrder {                         // 1.第一步，准备加载类
 
 
     static int num;                    // 2.第二步，静态变量和静态代码块的加载顺序由编写先后决定
@@ -18,7 +18,7 @@ public class Test {                         // 1.第一步，准备加载类
         System.out.println("匿名代码块");           // 7.第七步，按照顺序打印c
     }
 
-    public Test() { // 类的构造函数，第四个加载
+    public ClassLoadOrder() { // 类的构造函数，第四个加载
         System.out.println("构造函数");           // 8.第八步，最后加载构造函数，完成对象的建立
     }
 
@@ -27,7 +27,7 @@ public class Test {                         // 1.第一步，准备加载类
         num = 1;
     }
 
-    static void run()                    // 静态方法，调用的时候才加载// 注意看，e没有加载
+    public static void run()                    // 静态方法，调用的时候才加载// 注意看，e没有加载
     {
 
         System.out.println("静态方法");
@@ -35,7 +35,8 @@ public class Test {                         // 1.第一步，准备加载类
 
     public static void main(String[] args) {
 
-        new Test();
+        ClassLoadOrder classLoadOrder = new ClassLoadOrder();
+        run();
 
     }
 
