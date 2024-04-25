@@ -15,6 +15,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>springboot-demo</module>
+        <module>base</module>
     </modules>
 
     <properties>
