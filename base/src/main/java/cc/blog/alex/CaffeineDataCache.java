@@ -5,6 +5,7 @@ import com.github.benmanes.caffeine.cache.Caffeine;
 
 import java.time.Duration;
 import java.time.Instant;
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -16,26 +17,30 @@ import java.util.concurrent.TimeUnit;
  * @author lijiang
  * @since 2024/2/26 下午5:33
  */
-public class DataCache {
+public class CaffeineDataCache {
 
 
     public static void main(String[] args) {
 
-        Cache<String, String> cache = Caffeine.newBuilder().initialCapacity(10).maximumSize(10).expireAfterWrite(1, TimeUnit.SECONDS).recordStats().build();
+        Cache<String, String> cache = Caffeine.newBuilder()
+                .initialCapacity(10)
+                .maximumSize(Long.MAX_VALUE)
+                .expireAfterWrite(10, TimeUnit.MINUTES)
+                .recordStats()
+                .build();
 
-        cache.put("cc/blog/alex", "cc/blog/alex");
-        Instant start = Instant.now();
+        LocalDateTime now1 = LocalDateTime.now();
 
         int i = 0;
         while (i < Short.MAX_VALUE) {
             String uuid = UUID.randomUUID().toString();
             cache.put(uuid, uuid);
             i++;
-            cache.getIfPresent(uuid);
+            String ifPresent = cache.getIfPresent(uuid);
+            //System.out.println(ifPresent);
         }
-        Instant end = Instant.now();
-        long seconds = Duration.between(start, end).toMillis();
-        System.out.println(seconds);
+        long seconds = Duration.between(now1, LocalDateTime.now()).toMillis();
+        System.out.println("耗时" + seconds + "毫秒");
 
         Map<String, String> map = new HashMap<>();
         Instant now = Instant.now();
@@ -46,9 +51,11 @@ public class DataCache {
             map.put(uuid, uuid);
             j++;
             String s = map.get(uuid);
+            //System.out.println(s);
         }
+
         long millis = Duration.between(now, Instant.now()).toMillis();
-        System.out.println(millis);
+        System.out.println("耗时" + millis + "毫秒");
 
     }
 

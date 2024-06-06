@@ -6,7 +6,7 @@ package cc.blog.alex;
  * @author Alex
  * @since 2023/11/25 下午12:48
  */
-public class Demo {
+public class OuterDemo {
 
     public static void main(String[] args) {
 

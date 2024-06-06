@@ -1,6 +1,5 @@
-package cc.blog.alex;
+package cc.blog.alex.streamdemo;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -13,7 +12,7 @@ import java.util.stream.Collectors;
  * @author lijiang
  * @since 2024/3/21 下午2:38
  */
-public class DEmoaa {
+public class ListStreamDemo {
 
     public static void main(String[] args) {
 
