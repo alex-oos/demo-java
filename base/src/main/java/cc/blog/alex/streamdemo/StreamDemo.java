@@ -15,6 +15,7 @@ public class StreamDemo {
 
     public static void main(String[] args) {
 
+        // list中 包含对象,找出 重复的元素id
         List<Person> personList = new ArrayList<>();
         personList.add(new Person(1));
         personList.add(new Person(2));
@@ -22,8 +23,10 @@ public class StreamDemo {
         personList.add(new Person(1));
 
         Map<Integer, Long> collect = personList.stream().collect(Collectors.groupingBy((m -> m.getId()), Collectors.counting()));
-        collect.entrySet().stream().filter(entity->entity.getValue()>1).forEach(System.out::println);
+        // 找到大于1的数
+        collect.entrySet().stream().filter(entity -> entity.getValue() > 1).forEach(System.out::println);
 
+        // 假设list包含了多个Map对象，找出重复的id
         List<Map<String, Object>> list = new ArrayList<>();
         Map<String, Object> map = new HashMap<>();
         map.put("id", 1);
