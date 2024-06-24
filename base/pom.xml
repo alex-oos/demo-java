@@ -9,4 +9,5 @@
     <artifactId>base</artifactId>
     <name>Archetype - base</name>
     <url>http://maven.apache.org</url>
+
 </project>

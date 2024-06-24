@@ -1,6 +1,9 @@
 package cc.blog.alex.filedemo;
 
+import org.apache.commons.io.FileUtils;
+
 import java.io.File;
+import java.io.IOException;
 
 /**
  * <P>
@@ -37,6 +40,14 @@ public class DeleteDir {
         String pathName = "/data/work/";
         File file = new File(pathName);
         deleteFolder(file);
+
+        try {
+            FileUtils.deleteDirectory(file);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+
     }
 
 }

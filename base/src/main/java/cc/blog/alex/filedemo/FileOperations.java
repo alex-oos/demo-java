@@ -18,7 +18,6 @@ public class FileOperations {
     public static void main(String[] args) throws IOException {
 
         Path filepath = Paths.get("data/data.txt");
-
         List<String> list = Files.readAllLines(filepath);
         String collect = list.stream().map(s -> "\"" + s + "\"").collect(Collectors.joining(","));
         System.out.println(collect);
