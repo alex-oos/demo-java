@@ -13,8 +13,6 @@ import java.io.IOException;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutionException;
-import java.util.function.Function;
 
 /**
  * @author Alex
@@ -25,13 +23,13 @@ public class HttpClientDemo {
 
     public static String host = "http://localhost:8080";
 
-    static String getUri = "/car";
+    public static String uri = "/car";
 
     public static long httpClientGet() {
 
         Instant begin = Instant.now();
         try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
-            HttpGet request = new HttpGet(host + getUri);
+            HttpGet request = new HttpGet(host + uri);
             Instant now = Instant.now();
             HttpResponse response = httpClient.execute(request);
             long millis = Duration.between(now, Instant.now()).toMillis();
@@ -51,7 +49,7 @@ public class HttpClientDemo {
         Instant begin = Instant.now();
         OkHttpClient client = new OkHttpClient();
 
-        Request request = new Request.Builder().url(host + getUri).get().build();
+        Request request = new Request.Builder().url(host + uri).get().build();
 
         try {
             Instant now = Instant.now();
@@ -79,7 +77,7 @@ public class HttpClientDemo {
         Instant begin = Instant.now();
         OkHttpClient client = new OkHttpClient();
 
-        Request request = new Request.Builder().url(host + getUri).get().build();
+        Request request = new Request.Builder().url(host + uri).get().build();
         CompletableFuture<String> future = new CompletableFuture<>();
 
         client.newCall(request).enqueue(new Callback() {
@@ -126,7 +124,7 @@ public class HttpClientDemo {
                     response = chain.proceed(request);
                     responseOk = response.isSuccessful();
                 } catch (IOException e) {
-                    System.err.println("请求失败"+e.getMessage());
+                    System.err.println("请求失败" + e.getMessage());
                     tryCount++;
                 }
             }
@@ -137,7 +135,7 @@ public class HttpClientDemo {
             return response;
         }).build();
 
-        Request request = new Request.Builder().url(host + getUri).get().build();
+        Request request = new Request.Builder().url(host + uri).get().build();
 
         try {
             Response response = client.newCall(request).execute();
@@ -146,7 +144,7 @@ public class HttpClientDemo {
                 String result = response.body().string();
                 System.out.println(result);
             } else {
-                 //throw new IOException("Unexpected code " + response);
+                //throw new IOException("Unexpected code " + response);
                 System.out.println("请求失败");
             }
 
